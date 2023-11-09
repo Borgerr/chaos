@@ -5,12 +5,12 @@ pub struct DiceBuilder {
 }
 
 impl DiceBuilder {
-    pub fn sides(mut self, sides: u32) -> mut Self {
+    pub fn sides(mut self, sides: u32) -> Self {
         self.dice_sides = sides;
         self
     }
 
-    pub fn name(mut self, name: String) -> mut Self {
+    pub fn name(mut self, name: String) -> Self {
         self.dice_name = name;
         self
     }
