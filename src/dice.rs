@@ -6,7 +6,7 @@ pub struct Dice {
 }
 
 impl Dice {
-    pub fn roll(&mut self) {
+    pub fn roll(mut self) {
         let mut rng = rand::thread_rng();
         self.previous_result = rng.gen_range(1..=self.sides);
         if self.previous_result == 1 {
