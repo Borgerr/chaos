@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdomsx680v3f"]
+
+[ext_resource type="Texture2D" uid="uid://8m2oicjhqjgd" path="res://Sprites/Forest/Parallax/0.png" id="1_n6t4f"]
+[ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_svn42"]
+[ext_resource type="Texture2D" uid="uid://cocgdt3vv3x73" path="res://Sprites/Forest/Parallax/1.png" id="2_bucc3"]
+[ext_resource type="Texture2D" uid="uid://cpue3eyw7544q" path="res://Sprites/Forest/Parallax/2.png" id="3_nqxm3"]
+[ext_resource type="Texture2D" uid="uid://cqpelaiehkdmr" path="res://Sprites/Forest/Parallax/3.png" id="4_brfwq"]
+[ext_resource type="Texture2D" uid="uid://bg5yl878uuag2" path="res://Sprites/Forest/Parallax/4.png" id="5_be5rc"]
+[ext_resource type="FontFile" uid="uid://dchw1m33mtm5t" path="res://Fonts/Kenney Blocks.ttf" id="6_s74yv"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svn42")
+
+[node name="Background" type="ParallaxBackground" parent="."]
+scale = Vector2(3.61, 3.61)
+transform = Transform2D(3.61, 0, 0, 3.61, 0, 0)
+scroll_base_scale = Vector2(0.05, 0)
+scroll_limit_begin = Vector2(inf_neg, inf_neg)
+scroll_limit_end = Vector2(inf, inf)
+
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxLayer0"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_n6t4f")
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxLayer1"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_bucc3")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxLayer2"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_nqxm3")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxLayer3"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_brfwq")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxLayer4"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_be5rc")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 137.0
+offset_right = 1152.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_s74yv")
+theme_override_font_sizes/font_size = 64
+text = "Hummingbird Simulator"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 64.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_s74yv")
+theme_override_font_sizes/font_size = 64
+text = "START"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
