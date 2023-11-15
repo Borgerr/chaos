@@ -1,0 +1,15 @@
+res://Scenes/PlayerControllerTest.tscn
+res://Sprites/bird.tres
+res://Sprites/Forest/forest.tres
+res://Sprites/Flowers/flowers.tres
+res://Scenes/MainLevel.tscn
+res://worldgenerator.gd
+res://procedural.gd
+res://Scripts/procedural.gd
+res://Prefabs/SquareObstacle.tscn
+res://Prefabs/LongWall.tscn
+res://Prefabs/ShortWall.tscn
+res://Prefabs/LPiece.tscn
+res://Prefabs/UShape.tscn
+res://Prefabs/TPiece.tscn
+res://Scripts/worldgenerator.gd

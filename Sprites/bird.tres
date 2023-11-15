@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://b0yslqpxxnwdm"]
+
+[ext_resource type="Texture2D" uid="uid://b3urioa616iq1" path="res://Sprites/birds.32x32.png" id="1_vvgfy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5erf6"]
+atlas = ExtResource("1_vvgfy")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc5ej"]
+atlas = ExtResource("1_vvgfy")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmpin"]
+atlas = ExtResource("1_vvgfy")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxhk8"]
+atlas = ExtResource("1_vvgfy")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eim18"]
+atlas = ExtResource("1_vvgfy")
+region = Rect2(128, 0, 32, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5erf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc5ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmpin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxhk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eim18")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

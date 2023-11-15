@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b38pm48rbg6no"]
+
+[ext_resource type="Script" path="res://Scripts/Flower.gd" id="1_5ex0u"]
+[ext_resource type="SpriteFrames" uid="uid://dok6r47glcv5q" path="res://Sprites/Flowers/flowers.tres" id="1_8pcbp"]
+[ext_resource type="AudioStream" uid="uid://c5vkoethqouhr" path="res://Audio/slurp.ogg" id="3_6p1y5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_emx87"]
+radius = 14.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5hoxj"]
+emission_shape = 1
+emission_sphere_radius = 20.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_max = 720.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 720.0
+scale_max = 5.0
+color = Color(1, 1, 0.615686, 0.721569)
+hue_variation_min = -0.05
+hue_variation_max = 0.19
+
+[node name="Flower" type="Area2D" groups=["Flowers"]]
+script = ExtResource("1_5ex0u")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("1_8pcbp")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_emx87")
+
+[node name="NectarParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_5hoxj")
+
+[node name="Succ" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6p1y5")

@@ -1,0 +1,156 @@
+[gd_scene load_steps=16 format=3 uid="uid://r47hkyg65bmd"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_0e1xv"]
+[ext_resource type="SpriteFrames" uid="uid://b0yslqpxxnwdm" path="res://Sprites/bird.tres" id="1_gns27"]
+[ext_resource type="Texture2D" uid="uid://8m2oicjhqjgd" path="res://Sprites/Forest/Parallax/0.png" id="3_0ygj3"]
+[ext_resource type="Texture2D" uid="uid://47c7rsfidm8v" path="res://Sprites/GUI/progressbar_back.png" id="3_dj04a"]
+[ext_resource type="Texture2D" uid="uid://cocgdt3vv3x73" path="res://Sprites/Forest/Parallax/1.png" id="4_8ywe3"]
+[ext_resource type="Texture2D" uid="uid://bu8dwkgvv28vd" path="res://Sprites/GUI/progressbar_front.png" id="4_k0lio"]
+[ext_resource type="Texture2D" uid="uid://cpue3eyw7544q" path="res://Sprites/Forest/Parallax/2.png" id="5_gyq3f"]
+[ext_resource type="FontFile" uid="uid://dchw1m33mtm5t" path="res://Fonts/Kenney Blocks.ttf" id="5_vfxw7"]
+[ext_resource type="Texture2D" uid="uid://cqpelaiehkdmr" path="res://Sprites/Forest/Parallax/3.png" id="6_57doj"]
+[ext_resource type="Texture2D" uid="uid://bg5yl878uuag2" path="res://Sprites/Forest/Parallax/4.png" id="7_dc86v"]
+[ext_resource type="AudioStream" uid="uid://qxbdweacbtmk" path="res://Audio/begin.ogg" id="10_1o7s2"]
+[ext_resource type="AudioStream" uid="uid://cxky66crsvrjj" path="res://Audio/lookOut.ogg" id="10_xjepl"]
+[ext_resource type="AudioStream" uid="uid://cvwcor6uxgd25" path="res://Audio/Theme for Harold var 3.mp3" id="12_rpn67"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vn4u"]
+radius = 12.0416
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3llq"]
+radius = 12.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_0e1xv")
+
+[node name="Beak" type="Area2D" parent="."]
+position = Vector2(-12, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beak"]
+shape = SubResource("CircleShape2D_5vn4u")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w3llq")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("1_gns27")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+rotation_smoothing_speed = 0.1
+
+[node name="GUI" type="Control" parent="Camera"]
+z_index = 1000
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Camera/GUI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -141.0
+offset_top = -79.0
+offset_right = -137.0
+offset_bottom = -52.0
+max_value = 3.0
+step = 0.01
+value = 2.0
+fill_mode = 3
+texture_under = ExtResource("3_dj04a")
+texture_progress = ExtResource("4_k0lio")
+texture_progress_offset = Vector2(6.5, 10)
+
+[node name="Score" type="Label" parent="Camera/GUI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 102.0
+offset_top = -78.0
+offset_right = 142.0
+offset_bottom = -51.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_vfxw7")
+text = "0"
+horizontal_alignment = 2
+
+[node name="Background" type="ParallaxBackground" parent="Camera"]
+scale = Vector2(1.2, 1.2)
+transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
+scroll_base_scale = Vector2(0.05, 0)
+scroll_limit_begin = Vector2(inf_neg, inf_neg)
+scroll_limit_end = Vector2(inf, inf)
+
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="Camera/Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Background/ParallaxLayer0"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_0ygj3")
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="Camera/Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Background/ParallaxLayer1"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_8ywe3")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera/Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Background/ParallaxLayer2"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_gyq3f")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Camera/Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Background/ParallaxLayer3"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_57doj")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Camera/Background"]
+texture_filter = 1
+texture_repeat = 2
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Background/ParallaxLayer4"]
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_dc86v")
+
+[node name="Begin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_1o7s2")
+pitch_scale = 1.5
+max_polyphony = 2
+
+[node name="LookOut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_xjepl")
+pitch_scale = 2.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_rpn67")
+pitch_scale = 1.25

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://decahkqp48smp"]
+
+[ext_resource type="TileSet" uid="uid://bt8rd73lgmux4" path="res://Sprites/Forest/forest.tres" id="1_7fguk"]
+
+[node name="SquareObstacle" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_7fguk")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 65536, 1, -1, 65536, 0, -65536, 131072, 0, 0, 131072, 1, 65534, 0, 1, -2, 0, 0, 65536, 131072, 2, 131071, 65536, 2, 131070, 0, 2)
